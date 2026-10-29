@@ -1,4 +1,4 @@
-module github.com/tailscale/go-bluesky
+module github.com/litui/go-bluesky
 
 go 1.26.0
 
