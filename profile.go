@@ -218,7 +218,7 @@ func (p *Profile) StreamFollowers(ctx context.Context) (<-chan *User, <-chan err
 		}()
 		for {
 			// Resolve the followers from the Bluesky server
-			res, err := bsky.GraphGetFollowers(ctx, p.client.client, p.DID, cursor, 100)
+			res, err := bsky.GraphGetFollowers(ctx, p.client.client, p.DID, cursor, 100, "asc")
 			if err != nil {
 				errc <- err
 				return
@@ -300,7 +300,7 @@ func (p *Profile) StreamFollowees(ctx context.Context) (<-chan *User, <-chan err
 		}()
 		for {
 			// Resolve the followees from the Bluesky server
-			res, err := bsky.GraphGetFollows(ctx, p.client.client, p.DID, cursor, 100)
+			res, err := bsky.GraphGetFollows(ctx, p.client.client, p.DID, cursor, 100, "asc")
 			if err != nil {
 				errc <- err
 				return
